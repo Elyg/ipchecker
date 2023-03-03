@@ -74,12 +74,12 @@ def main():
     
     time.sleep(5)
     
-    print(SCAN_INTERVAL_MIN)
-    print(DOMAIN)
-    print(CLOUDFLARE_TOKEN)
-    print(SENDER_EMAIL)
-    print(SENDER_EMAIL_PASSWORD)
-    print(RECIPIENT_EMAIL)
+    # print(SCAN_INTERVAL_MIN)
+    # print(DOMAIN)
+    # print(CLOUDFLARE_TOKEN)
+    # print(SENDER_EMAIL)
+    # print(SENDER_EMAIL_PASSWORD)
+    # print(RECIPIENT_EMAIL)
      
     if SCAN_INTERVAL_MIN and DOMAIN and CLOUDFLARE_TOKEN and SENDER_EMAIL and SENDER_EMAIL_PASSWORD and RECIPIENT_EMAIL:
         _INTERVAL = int(SCAN_INTERVAL_MIN)*60
