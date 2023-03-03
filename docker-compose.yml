@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  ipchecker:
+    image: ipchecker
+    environment:
+      SCAN_INTERVAL_MIN: "10"
+      DOMAIN: "<YOUR_DOMAIN.COM>"
+      CLOUDFLARE_TOKEN: "<CLOUDFLARE_TOKEN>"
+      SENDER_EMAIL: "<EMAIL>"
+      SENDER_EMAIL_PASSWORD: "<EMAIL_PASS>"
+      RECIPIENT_EMAIL: "<RECEIPIENT_EMAIL>"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
