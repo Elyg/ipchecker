@@ -84,11 +84,17 @@ def main():
     if SCAN_INTERVAL_MIN and DOMAIN and CLOUDFLARE_TOKEN and SENDER_EMAIL and SENDER_EMAIL_PASSWORD and RECIPIENT_EMAIL:
         _INTERVAL = int(SCAN_INTERVAL_MIN)*60
 
+        was_error = False
         while(True):
             if avail_internet():
                 try:
                     PUBLIC_IP = get_public_ip()
                     DNS_IP = get_dns_ip()
+                    
+                    if was_error:
+                        send_email_notification(body="IPCHECKER RUNNING FINE!")
+                        was_error = False
+                        
                     print("Current PUBLIC_IP: {} DNS_IP: {}".format(PUBLIC_IP, DNS_IP))
                     if PUBLIC_IP != DNS_IP:
                         update_cloud_flare(DNS_IP, PUBLIC_IP)
@@ -96,6 +102,7 @@ def main():
                     print("="*10)
                     print(e)
                     send_email_notification(body="ERROR: \n{}".format(e))
+                    was_error = True
                     print("="*10)
             else:
                 print("<No internet access, skipping ip address DNS update!>")
