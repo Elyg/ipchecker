@@ -138,7 +138,7 @@ def main():
                     if not PUBLIC_IP:
                         print("Couldn't retrieve public ip!")
                         send_email_notification(
-                            body="IPCHECKER COULDNT GET PUBLIC I !"
+                            body="IPCHECKER COULDNT GET PUBLIC IP !"
                         )
                     DNS_IP = get_dns_ip()
 
