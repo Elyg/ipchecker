@@ -19,8 +19,10 @@ build image
 
 using the docker cli
 
+```
 docker login
 docker build . -t ipchecker:dev
 docker images
 docker tag ipchecker:dev elyg/ipchekcer:dev
 docker push elyg/ipchecker:dev
+```
